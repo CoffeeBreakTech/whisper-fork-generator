@@ -463,6 +463,7 @@ def transcribe(
                 for segment in current_segments:
                     start, end, text = segment["start"], segment["end"], segment["text"]
                     line = f"[{format_timestamp(start)} --> {format_timestamp(end)}] {text}"
+                    yield start, end, text
                     print(make_safe(line))
 
             # if a segment is instantaneous or does not contain text, clear it
